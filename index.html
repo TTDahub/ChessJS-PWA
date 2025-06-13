@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="theme-color" content="#4CAF50">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" href="/icons/icon-apple.svg">
+		<link rel="manifest" href="/manifest.json">
+    <title>Two-Player Chess Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chess-container">
+        <h1>Chess Game</h1>
+		<button id="start-button" class="start-button">Start Game</button>
+		<div id="debug-info" class="debug-info" style="display: none;"></div>
+		<div id="status"></div>
+		<div id="board" class="chess-board" style="display: none;"></div>
+		<div id="move-history" class="move-history" style="display: none;"></div>
+    </div>
+	 <script>
+		// Register service worker
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', () => {
+			navigator.serviceWorker.register('/sw.js');
+		});
+		}
+	</script>
+    <script src="chess.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
